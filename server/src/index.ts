@@ -10,7 +10,8 @@ import exampleRoutes from './routes/exampleRoutes';
 const main = async () => {
   const API_URL = process.env.NODE_ENV !== 'production'
     ? 'http://localhost:5000'
-    : process.env.PROD_URL;
+    : 'deployed value';
+
   const app = express();
   app.use(cors());
   app.set('trust-proxy', 1);
