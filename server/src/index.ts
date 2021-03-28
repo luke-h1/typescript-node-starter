@@ -37,7 +37,7 @@ const main = async () => {
 
   try {
     app.listen(PORT, () => {
-      console.log(`Server running on ${API_URL}`);
+      console.log(`Server running on ${API_URL} in ${process.env.NODE_ENV} mode`);
     });
   } catch (e) {
     console.error(e);
