@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch": "tsc --watch",
-    "dev": "nodemon dist/index.js",
+    "dev": "nodemon dist/src/index.js",
     "docker:build": "docker build -t ts-node-starter . ",
     "docker:start": "docker run -p 8001:4000 ts-node-starter",
     "build": "tsc",
