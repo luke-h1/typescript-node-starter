@@ -1,0 +1,6 @@
+version: "3.7"
+services:
+  server:
+    image: ts-node-starter
+    ports:
+      - "5000:5000"
