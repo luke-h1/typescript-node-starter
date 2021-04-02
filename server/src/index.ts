@@ -2,7 +2,6 @@ import express from 'express';
 import 'dotenv/config';
 import morgan from 'morgan';
 import helmet from 'helmet';
-import rateLimit from 'express-rate-limit';
 import cors from 'cors';
 import { errorHandler } from './middleware/error';
 import exampleRoutes from './routes/exampleRoutes';
@@ -10,18 +9,17 @@ import exampleRoutes from './routes/exampleRoutes';
 const main = async () => {
   const app = express();
   app.use(cors());
-  app.set('trust-proxy', 1);
-  const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 mins
-    max: 80, // limit each IP addr to 80 requests per 15 mins
-    message: 'Too many requests from this IP. Try again in 15 minutes',
-  });
+  app.set('proxy', 1);
   app.use(helmet());
-  app.use(limiter);
   app.use(errorHandler);
   app.use(express.json());
   app.use(morgan('dev'));
   app.disable('x-powered-by');
+  app.use(cors({
+    origin: process.env.CORS_ORIGIN,
+    credentials: true,
+  }));
+
   const PORT = process.env.PORT || 5000;
 
   app.get('/', (_, res) => {
