@@ -8,10 +8,6 @@ import { errorHandler } from './middleware/error';
 import exampleRoutes from './routes/exampleRoutes';
 
 const main = async () => {
-  const API_URL = process.env.NODE_ENV !== 'production'
-    ? 'http://localhost:5000'
-    : 'deployed value';
-
   const app = express();
   app.use(cors());
   app.set('trust-proxy', 1);
@@ -38,7 +34,7 @@ const main = async () => {
 
   try {
     app.listen(PORT, () => {
-      console.log(`Server running on ${API_URL} in ${process.env.NODE_ENV} mode`);
+      console.log(`Server running on http://localhost:${PORT} in ${process.env.NODE_ENV} mode`);
     });
   } catch (e) {
     console.error(e);
