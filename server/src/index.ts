@@ -9,7 +9,7 @@ import exampleRoutes from './routes/exampleRoutes';
 const main = async () => {
   const app = express();
   app.use(cors());
-  app.set('proxy', 1);
+  app.set('trust proxy', 1);
   app.use(helmet());
   app.use(errorHandler);
   app.use(express.json());
