@@ -1,5 +1,5 @@
 # Typescript node starter
 
 
-* code I use for starting projects with Express, Node & Typescript
 
+Boilerplace I use for starting Node & Express projects
